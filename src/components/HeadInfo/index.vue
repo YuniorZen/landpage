@@ -1,7 +1,7 @@
 <!-- 顶部信息头组件 -->
 <template>
   <div class="head-info">
-    <div class="info-name"><a href="/">JD落地页管理系统</a></div>
+    <div class="info-name"><a href="https://yuniorzen.github.io/landpage/dist/">JD落地页管理系统</a></div>
     <div class="info-user"><i class="item-icon el-icon-s-custom"></i> FDG888</div>
   </div>
 </template>
