@@ -209,11 +209,11 @@ export default {
     },
     //新建落地页
     cratePage(){
-      window.open('/#/PageCreate','_blank')
+      window.open('#/PageCreate','_blank')
     },
     //编辑页面
     editorPage(page){
-      window.open(`/#/PageEditor?urlKey=${page.urlKey}`,'_blank')
+      window.open(`#/PageEditor?urlKey=${page.urlKey}`,'_blank')
     },
     //删除落地页
     deletePage(page){
@@ -241,7 +241,7 @@ export default {
     },
     //预览落地页
     previewPage(page){
-      window.open(`/#/PagePreview?urlKey=${page.urlKey}`,'_blank')
+      window.open(`#/PagePreview?urlKey=${page.urlKey}`,'_blank')
     },
     //更新落地页的状态
     updatePageStatus(page, status){
@@ -367,7 +367,7 @@ export default {
     },
     // 编辑
     pageEditor(data){
-      window.open(`/#/PageEditor?urlKey=${data.urlKey}`,'_blank')
+      window.open(`#/PageEditor?urlKey=${data.urlKey}`,'_blank')
     }
   },
   components:{
