@@ -1,0 +1,36 @@
+.preview{
+    max-width:10.24rem !important;    
+    margin:0 auto;
+    padding-top:0.3rem;
+    display: flex;
+    justify-content: space-between;
+
+    .miniprogram-wraper{
+        width:3.75rem;
+
+        .miniprogram-head{
+            background: url(/static/img/miniprogram_head.png) no-repeat center center;
+            background-size:100% 100%;
+            height:0.85rem;     
+            
+            .head-title{
+                text-align: center;
+                line-height: 1.25rem;
+                width: 2.68rem;
+                margin-left: 0.28rem;
+            }
+        }
+        .miniprogram-con{           
+            height:6.2rem;
+            overflow: hidden;
+            background-color: #ffffff;
+
+            iframe{
+                width:100%;
+                height:100%;
+                border: none;
+            }
+        }
+    }
+}
+

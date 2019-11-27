@@ -1,0 +1,78 @@
+@import '@/assets/style/var.scss';
+
+//右侧组件编辑栏
+.page-right{
+    .full-container{
+        height:100%;
+        overflow: hidden;
+    }
+    
+    .component-name{
+        height:0.45rem;
+        line-height:0.45rem;
+        border-bottom:0.01rem solid $border-color-gray;
+        padding-left:0.2rem;
+    }    
+
+
+    //页面和组件设置
+    .page-set, .componet-set{
+        padding:0.35rem 0.2rem 0.2rem;
+        box-sizing: border-box;
+        max-height:calc(100% - 0.45rem);
+        overflow:auto;
+
+        .setting-item{
+            margin-bottom:0.2rem;
+            .item-name{
+                flex:0 0 1.25rem;
+                text-align: right;
+                padding-right:0.1rem;
+                color: #3a3838;
+                font-size:$fs-14;
+            }
+            .item-value{
+                .el-date-editor{
+                    width:100%;
+                }
+                .el-radio{
+                    margin-right:0.1rem;
+                    .el-radio__label{
+                        padding-left:0.05rem;
+                    }
+                }
+                .img-uploader{
+                    position: relative;
+                    width:1.65rem;
+                    img{
+                        width:100%;
+                    }
+                    .share-image{
+                        width:1.65rem;
+                        height:1.65rem;
+                    }
+                    .backtop-image{
+                        width:0.4rem;
+                    }
+                }
+                .value-right{
+                    flex:0 0 0.6rem;
+                    text-align: right;
+                }          
+                
+            }
+        }
+
+        .border-wraper{
+            border:0.01rem solid $border-color-gray;
+            padding:0.1rem 0.15rem 0.1rem 0;
+        }
+
+        .tip-info{
+            color: #999;
+            font-size:0.12rem;
+            margin-top:0.05rem;
+        }
+    }    
+}  
+

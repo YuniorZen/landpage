@@ -1,0 +1,58 @@
+@import '@/assets/style/var.scss';
+
+//中间组件展示栏
+.page-center{
+    .page-wraper{
+        z-index:1;
+    }
+    .component-wraper{
+        position: relative;  
+        z-index:1;
+
+        .component-view{
+            position: relative;
+            min-height:0.36rem;
+            //层级子元素
+            &.component-child{
+                z-index: 10;
+            }
+        }
+
+        //拖拽经过处理
+        .component-view.hover-child{
+            outline: 0.01rem dashed $color-line-active;            
+            z-index:10;
+            outline-offset:-1px;
+        }
+        .component-view.hover-pre::before{
+            content: '';
+            height:0.01rem;
+            font-size:0;
+            background-color: $color-line-active;
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            box-shadow: -1px -1px 8px $color-line-active;
+        }
+        .component-view.hover-next::before{
+            content: '';
+            height:0.01rem;
+            font-size:0;
+            background-color: $color-line-active;
+            position: absolute;
+            bottom:0;
+            left:0;
+            right:0;
+            box-shadow: 1px 1px 8px $color-line-active;
+        }
+
+        //当前激活组件，显示outline虚线框             
+        .component-view.active{
+            outline: 0.01rem dashed $color-line-active;            
+            z-index:10;
+            outline-offset:-1px;
+        }           
+        
+    }
+}

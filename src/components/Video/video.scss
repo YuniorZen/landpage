@@ -1,0 +1,44 @@
+
+.component-video{
+  position: relative;
+  
+  //默认视频
+  video{
+    width:100%;
+    display: block;
+    object-fit:fill;
+  }  
+  
+  //默认封面
+  .video-poster {
+    width:100%;
+    height:100%;
+    position: absolute;
+    z-index:10;
+    top:0;
+    left:0;
+    background-color: rgba($color: #000000, $alpha:0.5);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .icon-play{
+      width:0.46rem;
+      height:0.46rem;
+      background-size: contain;
+      background-image: url(/static/img/icon_play.png);
+      margin-top:-0.26rem;
+    }
+  }
+  
+    
+  //层级子元素下的视频
+  &.component-child{    
+    video{
+      height:100%;
+    }    
+  }
+}

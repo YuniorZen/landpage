@@ -1,0 +1,97 @@
+@import '@/assets/style/var.scss';
+
+.page-create{  
+   
+    //面包屑右侧操作按钮
+    .operate-btns{
+        text-align: right;
+    }
+    
+
+    //落地页自定义操作
+    .custom-page{
+        position: absolute;
+        top:1rem;
+        bottom:0;
+        right:0;
+        left:0;
+        align-items: stretch;
+
+        //左侧组件栏
+        .page-left{
+            position: relative;
+            width:3rem;
+            box-sizing: content-box;
+            background-color:$color-whilte;
+            border:0.01rem solid $border-color-gray;
+            margin-bottom:0.15rem;
+
+            .component-cate{
+                height:0.45rem;
+                line-height:0.45rem;
+                text-align: center;
+                margin-top:1rem;
+                border-top:0.01rem solid $border-color-gray;
+                border-bottom:0.01rem solid $border-color-gray;
+
+                &:first-of-type{
+                    border-top:none;
+                    margin-top:0;
+                }
+            }
+
+            .component-list{
+                flex-wrap: wrap;
+            }
+            .component-item{
+                height:1rem;
+                width:1rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                cursor: move;
+                &[draggable=false]{
+                    cursor: no-drop;
+                }
+
+                .item-icon{
+                    font-size:0.45rem;
+                }
+                .item-name{
+                    margin-top:0.05rem;
+                }
+            }
+        }
+
+        //中间组件展示栏
+        .page-center{
+            position: relative;
+            width:3.75rem;
+            margin-bottom:0.15rem;
+            overflow: hidden;
+            box-sizing: content-box;
+            background-color:$color-whilte;
+            border:0.01rem solid $border-color-gray;
+
+            .page-empty{
+                z-index:0;
+                position: absolute;
+                top:30%;
+                width: 100%;
+                text-align: center;
+                color: #6666;  
+                cursor: default;              
+            }
+        }
+
+        //右侧组件编辑栏
+        .page-right{
+            position: relative;
+            width:4.6rem;
+            background-color:$color-whilte;
+            border:0.01rem solid $border-color-gray;
+            margin-bottom:0.15rem;
+        }   
+    }
+}

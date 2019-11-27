@@ -1,0 +1,74 @@
+/* 查询条件 */
+.query-wraper{
+    padding:0.2rem 0 0.2rem;
+    background-color: #ffffff;
+    
+    .el-input {
+        width: 1.2rem;
+    }
+    .query-search{
+        width:1.6rem;
+    }     
+    
+    .query-btn{
+        font-weight: bold;
+        &+.query-btn{
+            margin-left:0.45rem;
+        }        
+    }
+}
+
+
+.page-list{
+    padding-bottom:0.3rem;    
+
+    /* 发布 、新建 */
+    .operate-row{
+        padding:0.2rem 0 0.1rem;
+       .operate-btn{
+           font-weight: bold;
+           width:0.7rem;
+       }
+    }
+
+    /* 表格 */
+    .el-table__header .el-table-column--selection .cell .el-checkbox:after {
+        content: "全选";
+        margin-left: 0.05rem;
+        color: #333;
+        font-size: 0.14rem;
+        font-weight: bold;
+    }
+    .el-table__header-wrapper .el-table__header .cell{
+        font-weight: bold;
+        line-height: 0.4rem;
+        color: #333;
+        font-size: 0.14rem;
+    }
+    .el-table_1_column_1{
+        text-align: center;
+    }
+    .el-table .cell{
+        line-height:0.28rem;
+    }
+
+    /* 表格操作 */
+    .list-table{ 
+        .operate-btn{
+            color: #0c64eb;
+            margin-right:0.2rem;
+            cursor: pointer;
+
+            &.operate-delete{
+                color: #F56C6C;               
+            }
+        }       
+    }
+
+    /* 分页 */
+    .page-box {
+        margin-top: 0.2rem;
+        text-align: right;
+    }
+   
+}

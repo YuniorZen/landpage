@@ -1,0 +1,8 @@
+ /* 面包屑组件 */
+ @import '@/assets/style/var.scss';
+ .breadcrumb-wraper{
+  height:0.45rem;
+  padding:0 0.3rem;
+  background-color:$color-whilte;
+  border-bottom:0.01rem solid $border-color-gray;
+}

@@ -1,0 +1,20 @@
+
+.component-picture{
+    position: relative;
+    .picture-img{
+      img {
+        width:100%;
+        display: block;
+      }
+    }
+    
+    //层级子元素下的图片
+    &.component-child{
+      .picture-img{
+        height:100%;
+        img{
+          height:100%;
+        }
+      }
+    }
+  }

@@ -1,0 +1,164 @@
+/* 全局样式设置 */
+
+@import './var.scss';
+
+input:active,input:focus,button:active,button:focus{
+    outline: none;
+}
+html{
+    font-size:100px;
+}
+
+/* 初始设置 */
+body{
+    font-size:$fs-16;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;   
+    background-color:#F1F4F5;
+    color: #101010;
+}
+
+/* 最外层包裹容器，限制最小宽度 */
+.container{
+    position: relative;
+    min-width:1280px;
+    margin:0 auto;
+    height:100%;
+    padding:0 0;
+}
+
+/* 全屏撑满 */
+.full-container{
+    min-width:100%;
+    min-height:100%;
+    position: relative;
+}
+
+/* 最大宽度区域 */
+.maxwidth{
+    max-width:1440px;
+    margin:0 auto;
+}
+
+/* 省略号 */
+.ellipsis{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+/* 边距功能类 */
+.mt10{
+    margin-top:0.10rem;
+}
+.mt15{
+    margin-top:0.15rem;
+}
+.mt20{
+    margin-top:0.20rem;
+}
+.mb10{
+    margin-bottom:0.10rem;
+}
+.mb15{
+    margin-bottom:0.15rem;
+}
+.mb20{
+    margin-bottom:0.20rem;
+}
+.nomargin-top{
+    margin-top:0 !important;
+}
+.nomargin-bottom{
+    margin-bottom:0 !important;
+}
+
+/*粗体*/
+.bold{
+    font-weight: bold;
+}
+
+/* 过渡 */
+.transition-linear{
+    transition: all linear 0.2s;
+}
+
+.transition-ease{
+    transition: all ease 0.2s;
+}
+
+/* 右靠齐 */
+.align-right{
+    text-align: right;
+}
+/* 中靠齐 */
+.align-center{
+    text-align: center;
+}
+/* 两边靠齐 */
+.align-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* 必填项 */
+.required{
+    color: #F56C6C;
+    font-size:0.14rem;
+    vertical-align: middle;
+}
+
+
+/* 覆盖滚动条样式 */
+.bscroll-indicator{
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+
+/* 落地页容器 */
+.page-wraper{
+    min-width:100%;
+    min-height:100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 落地页返回顶部 */
+.backTop{
+    width:0.4rem;
+    position:fixed;
+    right:0.16rem;
+    bottom:0.16rem;
+    z-index:100;
+    img{
+        width:100%;
+        display:block;
+    }
+}
+.page-center .backTop{
+    position:absolute;
+}
+
+
+
+/* 重置elementui的样式 */
+
+//有效期隐藏此刻
+.el-picker-panel__footer .el-button--text{
+    visibility: hidden;
+}
+
+//确认弹框层级最高
+.el-message-box__wrapper, .el-message{
+    z-index:10000 !important;
+}
+
+//复选框加深
+.el-checkbox__inner{
+    border-color: #9d9ea0;
+}
+.el-checkbox__input.is-disabled .el-checkbox__inner{
+    background-color: #ddd;
+    border-color: #ddd;
+}

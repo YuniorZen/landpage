@@ -1,0 +1,17 @@
+/* 顶部信息头 */
+.head-info{
+  height:0.45rem;
+  padding:0 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#333333;
+  color:#ffffff;
+  font-weight: bold;
+  font-size:0.18rem;
+
+  a:hover,a:visited,a:link{
+      color: #ffffff;
+      text-decoration: none;
+  }
+}

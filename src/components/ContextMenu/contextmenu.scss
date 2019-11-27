@@ -1,0 +1,31 @@
+
+.component-contextmenu{
+  position: absolute;
+  z-index:1000;
+  display: none;
+  min-width: 1.2rem;
+  padding: 0.05rem 0;
+  font-size: 0.12rem;
+  text-align: left;
+  background-color: #fff;
+  border: 0.01rem solid #ccc;
+  border: 0.01rem solid rgba(0,0,0,.15);
+  border-radius: 0.03rem;
+  box-shadow: 0 0.06rem 0.12rem rgba(0,0,0,.175);
+  background-clip: padding-box;
+  
+  .contextmenu-item{
+    height:0.24rem;
+    line-height: 0.24rem;
+    padding: 0 0.16rem;
+    color: #333;
+    cursor: pointer;
+
+    &:hover{
+      color: #fff;
+      text-decoration: none;
+      outline: 0;
+      background-color: #1593ff
+    }
+  }
+}
