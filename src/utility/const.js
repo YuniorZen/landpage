@@ -36,25 +36,25 @@ export const components={
 
 
 //环境配置  dev 开发 | test 测试 | pro 生产
-let env='dev'
+let env='test'
 
 let baseURL=''      //api接口地址
 let staticURL=''    //上传的静态素材地址
 
 switch(env){
     case 'dev':
-        baseURL='http://localhost:3001'
+        baseURL='http://localhost:3001/'
         staticURL='http://localhost:3001/'    
     break;
 
     case 'test':
-        baseURL='http://122.114.225.70:3001'
-        staticURL='http://122.114.225.70:3001/'    
+        baseURL='https://wodeyouxi.com/ms/landpage/'
+        staticURL='https://wodeyouxi.com/ms/landpage/'    
     break;
 
     case 'pro':
-        baseURL='http://122.114.225.70:3001'
-        staticURL='http://122.114.225.70:3001/' 
+        baseURL='https://wodeyouxi.com/ms/landpage/'
+        staticURL='https://wodeyouxi.com/ms/landpage/'    
     break;
 }
 
