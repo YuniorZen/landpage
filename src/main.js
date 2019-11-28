@@ -11,6 +11,9 @@ import './assets/style/common.scss'
 //路由跳转、权限统一处理
 import './router/permission'
 
+//vue过滤器或指令
+import './utility/filter'
+
 
 //按需引入ElementUI
 import {

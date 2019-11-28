@@ -103,7 +103,6 @@
       </el-table-column>
 
       <el-table-column
-        prop="expireDate"
         label="过期日期"
         width="180">
         <template slot-scope="scope">
@@ -112,9 +111,11 @@
       </el-table-column>
 
       <el-table-column
-        prop="creater"
-        label="创建人"
-        width="100">
+        label="创建时间"
+        width="180">
+        <template slot-scope="scope">
+        {{scope.row.createDate|formatDateTime}}
+        </template>
       </el-table-column>
 
       <el-table-column label="操作"
@@ -158,7 +159,7 @@ export default {
   data() {
     return {
       tableData:[],
-      status:'release',
+      status:'',
       name:'',
       title:'',
       urlKey:'',

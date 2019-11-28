@@ -8,15 +8,7 @@
     </div>
 
     <!-- 视频元素 -->
-    <video :id="'video'+id"  :src="videoLink" @ended="playEnd"
-      controls    
-      webkit-playsinline="true" 
-      playsinline="true" 
-      x-webkit-airplay="allow" 
-      x5-video-player-type="h5"  
-      x5-video-player-fullscreen="true" 
-      x5-video-orientation="portraint">
-    </video>
+    <video :id="'video'+id"  :src="videoLink" @ended="playEnd" controls ></video>
   </div>
 </template>
 
@@ -104,37 +96,28 @@ export default {
       return style
     }
   },
-  mounted(){
-   
-  },
   methods:{
     //开始播放
     play(e){
-      if(!this.videoLink){
-        this.$message({type: 'error',message:'无视频链接~'})
-        return
-      } else if(!this.confirmEnding(this.videoLink,'.mp4')) {
-        this.$message({type: 'error',message:'视频后缀为mp4格式!'})
-        return
-      }  
-      let video=document.querySelector('#video'+this.id);
-      if(video){
-        video.play()     
-      }
-      this.isPlay = true
+      if(this.videoLink){
+        if(!/(\.mp4)$/.test(this.videoLink)) {
+          return this.$message.error('视频链接必须以.mp4格式结尾')
+        }  
+
+        let video=document.querySelector('#video'+this.id);
+        if(video){
+          video.play()     
+          this.isPlay = true
+        }  
+      }else{
+        if(window.landpage_env!='editor'){
+          this.$message.error('未添加视频链接！')
+        } 
+      }          
     },
     //监听播放结束
     playEnd(e){
       this.isPlay = false
-    },
-    // 判断结尾格式方法
-    confirmEnding(str, target) {
-      let start = str.length-target.length;
-      let arr = str.substr(start,target.length);
-      if(arr == target){
-        return true;
-      }
-      return false;
     }
   }
 }

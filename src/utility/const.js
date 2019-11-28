@@ -15,20 +15,22 @@ export const components={
             type:'Video',
             name:'视频',
         },
-        // { 
-        //     type:'Carousel',
-        //     name:'轮播图',
-        // }
+        { 
+            type:'Carousel',
+            name:'轮播图',
+        }
     ],
     market:[       
-        // { 
-        //     type:'Event',
-        //     name:'事件',
-        // },
-        // { 
-        //     type:'Goods',
-        //     name:'商品列表',
-        // }
+        { 
+            type:'Event',
+            name:'事件',
+            disableDrag:true,
+        },
+        { 
+            type:'Goods',
+            name:'商品列表',
+            disableDrag:true,
+        }
     ]
 }
 
@@ -43,18 +45,18 @@ let staticURL=''    //上传的静态素材地址
 
 switch(env){
     case 'dev':
-        baseURL='http://localhost:3001/'
-        staticURL='http://localhost:3001/'    
+        baseURL='http://localhost:3001'
+        staticURL='http://localhost:3001'    
     break;
 
     case 'test':
-        baseURL='https://wodeyouxi.com/ms/landpage/'
-        staticURL='https://wodeyouxi.com/ms/landpage/'    
+        baseURL='https://wodeyouxi.com/ms/landpage'
+        staticURL='https://wodeyouxi.com/upload_landpage'    
     break;
 
     case 'pro':
-        baseURL='https://wodeyouxi.com/ms/landpage/'
-        staticURL='https://wodeyouxi.com/ms/landpage/'    
+        baseURL='https://wodeyouxi.com/ms/landpage'
+        staticURL='https://wodeyouxi.com/upload_landpage'    
     break;
 }
 

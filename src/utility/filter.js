@@ -3,7 +3,7 @@
 */
 
 import Vue from 'vue'
-import util from './index'
+import {formatDateTime} from '@/utility/'
 
 //千分位分隔符
 Vue.filter('toThousands',val=>{
@@ -17,5 +17,5 @@ Vue.filter('number',val=>{
 })
 
 //格式化日期时间 eg:2019-09-24 11:31:06
-Vue.filter('formatDateTime', util.formatDateTime)
+Vue.filter('formatDateTime', formatDateTime)
 
