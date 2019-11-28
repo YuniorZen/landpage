@@ -12,7 +12,7 @@
         <div class="head-title ellipsis">{{title}}</div>
       </div>
       <div class="miniprogram-con">
-        <iframe :src="`/#/LandPage?urlKey=${urlKey}`" />
+        <iframe :src="`#/LandPage?urlKey=${urlKey}`" />
       </div>
     </div>
 

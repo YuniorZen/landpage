@@ -353,7 +353,7 @@ export default {
     },
     // 复制链接
     copyLink(data){
-      let url = window.location.origin+"/#/landpage?urlKey="+data.urlKey;
+      let url = window.location.origin+window.location.pathname+"#/landpage?urlKey="+data.urlKey;
       let oInput = document.createElement('input');
       oInput.value = url;
       document.body.appendChild(oInput);
