@@ -77,47 +77,6 @@ export default {
     });
   },
   methods: {
-    //初始化组件状态
-    initComponentProps(component) {
-      //  switch(props.type){
-      //     case 'Carousel':
-      //       props.slides=[{
-      //         imageUrl:'static/img/blank.png',
-      //         linkType:'goods',
-      //         link:''
-      //       }]
-      //       props.autoPlay=true
-      //       props.speed=2500
-      //       props.loop=false
-      //       props.direction='horizontal'
-      //       props.marginTop=0
-      //       props.marginBottom=0
-      //       props.width='100%'
-      //       props.height='auto'
-      //     break;
-      //     case 'Goods':
-      //       props.list=[]
-      //       props.template='col2'
-      //       props.marginTop=0
-      //       props.marginBottom=0
-      //       props.width='100%'
-      //       props.height='auto'
-      //     break;
-      //     case 'Video':
-      //       props.videoUrl=''
-      //       props.videoPoster='static/img/blank.png'
-      //       props.autoPlay=false
-      //       props.control=true
-      //       props.loop=false
-      //       props.marginTop=0
-      //       props.marginBottom=0
-      //       props.width='100%'
-      //       props.height='auto'
-      //     break;
-      //     case 'Event':
-      //     break;
-      //  }
-    },
     //阻止默认行为使拖拽生效
     dragover(ev) {
       ev.preventDefault();
@@ -207,7 +166,7 @@ export default {
     //组件的右键菜单显示
     contextmenu(ev) {
       let left = ev.clientX,
-        top = ev.clientY;
+          top = ev.clientY;
       this.$store.commit("showContextMenu", { left, top });
     },
     //重置关系组件

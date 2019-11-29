@@ -73,6 +73,77 @@
             font-size:0.12rem;
             margin-top:0.05rem;
         }
+
+        //轮播图属性
+        .setting-carousels{
+            .carousels-item{
+                position: relative;
+                padding:0 0.2rem 0 0.1rem;
+                margin-bottom:0.1rem;
+                display: flex;
+                align-items: center;
+
+                .item-img{
+                    width:1rem;
+                    flex: none;
+                    img{
+                        width:100%;
+                        display: block;
+                    }
+                }
+                .item-attrs{
+                    margin-left:0.15rem;
+                    flex:1 1 auto;
+                    .attr-wraper{      
+                        margin:0.1rem auto;
+                        display: flex;
+
+                        .attr-name{
+                            color: #3a3838;
+                            font-size:$fs-14;
+                        }                
+                        .attr-value{
+                            .el-radio{
+                                margin-right:0.12rem;
+                            }
+                            .el-radio:last-of-type{
+                                margin-right:0;
+                            }
+                        }        
+                    }
+                }
+                .item-operate{
+                    position:absolute;
+                    height:100%;
+                    right:-0.1rem;
+                    width:0.26rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: center;
+                    justify-content: center;
+                    
+                    i{
+                        margin:0.06rem auto;
+                        color: #1593ff;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+
+            }
+            
+            .carousels-add{
+                padding:0.1rem 0;
+                margin-left:0.1rem;
+                border: 0.01rem solid $border-color-gray;
+                cursor: pointer;
+                .addbtn{
+                    color: #1593ff;
+                    font-size:$fs-18;
+                    margin-bottom:0.1rem;
+                }
+            }
+        }
     }    
 }  
 
