@@ -8,12 +8,12 @@
             <el-upload class="img-uploader"
               name="picture"
               :action="uploadUrl"
-              v-loading="loading"
+              v-loading="loading&&currentIndex==index"
               accept="image/*"
               :show-file-list="false"
-              :on-success="uploadSuccess"      
+              :on-success="(res,file)=>{uploadSuccess(res,file,index)}"      
               :on-error="uploadError"
-              :before-upload="beforeUpload">
+              :before-upload="(file)=>{beforeUpload(file,index)}">
               <img  :src="item.imageUrl&&(staticURL+item.imageUrl)||'static/img/blank.png'" class="img-preview"/>         
             </el-upload>  
           </div>
@@ -182,6 +182,8 @@ export default {
       uploadUrl:http.uploadURL,
       //静态图片地址
       staticURL:http.staticURL,
+      //当前正在上传的轮播项
+      currentIndex:0,
       
        ...data,
     }
@@ -193,48 +195,28 @@ export default {
         this.initProps(this)
       }
     },
-    //监听图片上传-同步组件数据
-    imageUrl(newVal,oldVal){
-      this.$store.commit('setComponentProp',{id:this.component.id, prop:'imageUrl', newVal})
+    //深度监听轮播项中元素变化-同步组件数据
+    slides:{
+      handler:function(newVal,oldVal){
+        this.$store.commit('setComponentProp',{id:this.component.id, prop:'slides', newVal})
+      },
+      deep:true
     },
-    //监听链接类型-同步组件数据
-    linkType(newVal,oldVal){
-      let link=''
-      this.$store.commit('setComponentProp',{id:this.component.id, prop:'linkType', newVal})
-      switch(newVal){
-        case 'goods':
-          link=this.goodsLink;
-        break;
-        
-        case 'page':
-          link=this.pageLink;
-        break;
-
-        case 'h5':
-          link=this.h5Link;
-        break;
-
-        case 'none':
-          link='';
-        break;
-      }
-      this.$store.commit('setComponentProp',{id:this.component.id, prop:'link', newVal:link})
-      this.link=link
+    //监听滚动方向-同步组件数据
+    direction(newVal,oldVal){
+      this.$store.commit('setComponentProp',{id:this.component.id, prop:'direction', newVal})
     },
-    //监听小程序商品链接-同步组件数据
-    goodsLink(newVal,oldVal){
-      this.$store.commit('setComponentProp',{id:this.component.id, prop:'link', newVal})
-      this.link=newVal
+    //监听自动轮播-同步组件数据
+    autoplay(newVal,oldVal){
+      this.$store.commit('setComponentProp',{id:this.component.id, prop:'autoplay', newVal})
     },
-    //监听小程序页面链接-同步组件数据
-    pageLink(newVal,oldVal){
-      this.$store.commit('setComponentProp',{id:this.component.id, prop:'link', newVal})
-      this.link=newVal
+    //监听轮播间隔-同步组件数据
+    interval(newVal,oldVal){
+      this.$store.commit('setComponentProp',{id:this.component.id, prop:'interval', newVal})
     },
-    //监听H5链接-同步组件数据
-    h5Link(newVal,oldVal){
-      this.$store.commit('setComponentProp',{id:this.component.id, prop:'link', newVal})
-      this.link=newVal
+    //监听循环切换-同步组件数据
+    loop(newVal,oldVal){
+      this.$store.commit('setComponentProp',{id:this.component.id, prop:'loop', newVal})
     },
     //监听宽度设置-同步组件数据
     width(newVal,oldVal){
@@ -315,7 +297,7 @@ export default {
       this.slides.splice(index,1)
     },
     //上传之前的验证
-    beforeUpload(file){
+    beforeUpload(file,index){
       const isLt1M = file.size / 1024 / 1024 <= 1;
       if (!isLt1M) {
         this.$alert('图片最大不能超过1MB，请调整后，重新上传！', '请重新上传', {
@@ -325,13 +307,14 @@ export default {
         return false
       }
       
-      this.loading=true
+      this.currentIndex=index, this.loading=true
       return true
     },
     //上传成功
-    uploadSuccess(res, file){
+    uploadSuccess(res, file, index){
+      console.log(arguments)
       this.loading=false
-      this.imageUrl = res.data.path
+      this.slides[index].imageUrl = res.data.path
       this.$message.success(`上传图片成功！`); 
     },
     //上传失败
