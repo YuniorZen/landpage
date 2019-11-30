@@ -21,6 +21,7 @@ import {
   Table,TableColumn, DatePicker, Upload, Input, Radio, 
   Loading,ColorPicker,
   Breadcrumb, BreadcrumbItem, Select, Option, 
+  Carousel,CarouselItem,
   Message, MessageBox, Pagination ,Checkbox,CheckboxGroup,
 } from 'element-ui'
 Vue.use(Row), Vue.use(Col), 
@@ -36,6 +37,7 @@ Vue.use(Radio),
 Vue.use(ColorPicker),
 Vue.use(Breadcrumb),Vue.use(BreadcrumbItem),
 Vue.use(Select), Vue.use(Option),
+Vue.use(Carousel),Vue.use(CarouselItem),
 Vue.use(Loading.directive),
 Vue.use(Pagination);
 

@@ -1,5 +1,16 @@
 
 .component-carousel{
   position: relative;
+
+  .el-carousel{
+    .el-carousel__item{
+      img{
+        display: block;
+        width:100%;
+        height:100%;
+      }
+    }
+
+  }  
     
 }

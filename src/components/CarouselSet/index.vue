@@ -94,19 +94,19 @@
           </el-row>
         </el-col>
       </el-row> 
+      <el-row class="setting-item" type="flex" align="middle">
+        <el-col class="item-name">高度：</el-col>
+        <el-col class="item-value">
+          <el-row type="flex" align="middle">
+            <el-col>
+            <el-slider v-model="height" :max="viewWidth" :min="100" :show-tooltip="false"></el-slider>
+            </el-col>
+            <el-col class="value-right">{{height}}px</el-col>
+          </el-row>
+        </el-col>
+      </el-row>
       <!-- 层级子组件属性 -->
-      <template v-if="component.isChild">
-        <el-row class="setting-item" type="flex" align="middle">
-          <el-col class="item-name">高度：</el-col>
-          <el-col class="item-value">
-            <el-row type="flex" align="middle">
-              <el-col>
-              <el-slider v-model="height" :max="viewWidth" :min="100" :show-tooltip="false"></el-slider>
-              </el-col>
-              <el-col class="value-right">{{height}}px</el-col>
-            </el-row>
-          </el-col>
-        </el-row>
+      <template v-if="component.isChild">        
         <el-row class="setting-item" type="flex" align="middle">
           <el-col class="item-name">上边距：</el-col>
           <el-col class="item-value">
@@ -252,7 +252,7 @@ export default {
       data.direction=this.component.direction||'horizontal'
       data.autoplay=this.component.autoplay||true
       data.interval=this.component.interval||2500     
-      data.loop=this.component.loop||false
+      data.loop=this.component.loop||true
       data.slides=this.component.slides||[
         {imageUrl:'',linkType:'page',link:''},
         {imageUrl:'',linkType:'page',link:''},
@@ -260,11 +260,11 @@ export default {
 
       //组件基础属性
       data.width=this.component.width||viewWidth
+      data.height=this.component.height||300
       data.marginTop=this.component.marginTop||0
       data.marginBottom=this.component.marginBottom||0
 
       //层级子组件特有属性
-      data.height=this.component.height
       data.top=this.component.top
       data.left=this.component.left       
     },

@@ -1,8 +1,16 @@
+<!-- 轮播图展示组件 -->
 <template>
-  <div class="component-picture component-view" :style="style">
-    <div class="picture-img" @click="click">
-      <img :src="imageUrl&&(staticURL+imageUrl)||'static/img/blank.png'" />
-    </div>
+  <div class="component-carousel component-view" :style="style">
+    <el-carousel 
+    :height="height/rem2px+'rem'" 
+    :direction="direction"
+    :loop="loop"
+    :autoplay="autoplay"
+    :interval="interval">
+      <el-carousel-item v-for="(item,index) in slides" :key="index">
+        <img :src="item.imageUrl&&(staticURL+item.imageUrl)||'static/img/blank.png'" @click="click(item)" />
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </template>
 
@@ -12,7 +20,7 @@ import {checkMiniProgram, rem2px, viewWidth} from '@/utility/landpage'
 import http from '@/http/'
 
 export default {
-  name:'Picture',
+  name:'Carousel',
   //组件需要的属性
   props:{
     //组件名称
@@ -26,6 +34,36 @@ export default {
     type:{
       type:String,
       required:true
+    },
+    //轮播项
+    slides:{
+      type:Array,
+      default:function(){
+        return [
+          {imageUrl:'',linkType:'page',link:''},
+          {imageUrl:'',linkType:'page',link:''}
+        ]
+      }
+    },   
+    //滚动方向
+    direction:{
+      type:String,
+      default:'horizontal'
+    },
+    //自动播放
+    autoplay:{
+      type:Boolean,
+      default:true
+    },
+    //间隔时间
+    interval:{
+      type:Number,
+      default:2500,
+    },
+    //循环切换
+    loop:{
+      tyep:Boolean,
+      default:true
     },
     //上边距
     marginTop:{
@@ -42,21 +80,17 @@ export default {
       type:Number,
       default:viewWidth
     },
-    //图片地址
-    imageUrl:String,   
-    //链接类型
-    linkType:String,
-    //链接地址
-    link:String,
-
+    //高度
+    height:{
+      type:Number,
+      default:300,
+    },
 
     //是否层级子组件
     isChild:{
       type:Boolean,
       default:false
     },
-    //层级子组件的高度
-    height:Number,
     //层级子组件左距离
     left:Number,
     //层级子组件上距离
@@ -66,18 +100,17 @@ export default {
     return {    
       //静态图片地址
       staticURL:http.staticURL,
+      //rem to px的比例
+      rem2px:rem2px,
     }
-  },
-  mounted(){
-   
   },
   computed:{
     //根据设置参数计算样式
     style(){
-      let style='';
+      let style= `height:${this.height/rem2px}rem;`;
       if(this.isChild){
         style+=`position:absolute;top:${this.top/rem2px}rem;left:${this.left/rem2px}rem;
-                width:${this.width/rem2px}rem;height:${this.height/rem2px}rem;`
+                width:${this.width/rem2px}rem;`
       }else{
         style+=`margin-top:${this.marginTop/rem2px}rem;margin-bottom:${this.marginBottom/rem2px}rem;margin-left:auto;margin-right:auto;`
         if(this.width==viewWidth){
@@ -91,26 +124,25 @@ export default {
     }
   },
   methods:{
-    click(){
-      let linkType=this.linkType,
-          url=linkType=='goods'?`pages/goods-details/goods-details?main_goods_id=${this.link}`:this.link;
+    click(item){
+      let linkType=item.linkType;
 
       //组件在编辑环境展现不处理事件响应
-      if(window.landpage_env&&landpage_env=='editor'||!this.linkType=='none') return     
+      if(window.landpage_env&&landpage_env=='editor'||!item.link) return     
    
-      if(linkType=='goods'||linkType=='page'){
-        //小程序商品或页面
+      if(linkType=='page'){
+        //小程序页面
         checkMiniProgram()
         .then(res=>{
           if(res){
-            wx.miniProgram.navigateTo({url});
+            wx.miniProgram.navigateTo({url:item.link});
           }else{
             alert('当前环境不是小程序端')
           }          
         })
       }else if(linkType=='h5'){
         //h5链接
-        location.href=url
+        location.href=item.link
       }
     }
   }
