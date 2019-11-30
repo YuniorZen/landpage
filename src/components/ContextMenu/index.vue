@@ -58,10 +58,10 @@ export default {
     }
   },
   mounted(){
-    //失去焦点隐藏菜单
-    document.addEventListener('mouseup',(ev)=>{
-      this.$store.state.contextMenu.show=false
-    })
+    //失去焦点隐藏菜单， #mac触摸板bug,暂时使用mouseleave隐藏右键菜单
+    // document.addEventListener('mouseup',(ev)=>{
+    //   this.$store.state.contextMenu.show=false
+    // })
   },
   methods:{
     //移除组件
