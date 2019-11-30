@@ -21,14 +21,6 @@ export default new Router({
       component: Login
     },
     {
-      path: '/PageList',
-      name: 'PageList',
-      meta:{
-        title:"落地页列表",
-      },
-      component: PageList
-    },
-    {
       path: '/',
       name: 'PageList',
       meta:{

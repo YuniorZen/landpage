@@ -141,7 +141,7 @@ export default {
           confirmButtonText: 'OK',
           showClose:false,
           callback: action => {
-            this.$router.push({path:'/PageList'})
+            this.$router.push({path:'/'})
           }
         })  
       })
@@ -184,7 +184,7 @@ export default {
           confirmButtonText: 'OK',
           showClose:false,
           callback: action => {
-            this.$router.push({path:'/PageList'})
+            this.$router.push({path:'/'})
           }
         })      
       })

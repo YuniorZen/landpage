@@ -118,6 +118,12 @@
         </template>
       </el-table-column>
 
+      <el-table-column
+        label="创建人"
+        width="100">        
+          运营-张山        
+      </el-table-column>
+
       <el-table-column label="操作"
         width="320">
         <template slot-scope="scope">
