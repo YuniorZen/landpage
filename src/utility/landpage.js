@@ -91,3 +91,30 @@ export const throttleFn=(delay, callback)=>{
 
     return wrapper;
 }
+
+
+/*
+ * 按照设计稿宽高比例设定html字体，1rem=100px;
+ */
+export const calcuFontSize=()=> {
+    var win=window,
+        designWidth = 375,
+        designHeight = 0,
+        designFontSize = 100, //1rem=100px        
+        root = document.documentElement;
+    
+    //返回root元素字体计算结果,根据宽度或高度最小的比例选择
+    var getFontSize=function() {
+        var scale = designHeight !== 0 ? Math.min(win.innerWidth / designWidth, win.innerHeight / designHeight) : win.innerWidth / designWidth;
+        return parseInt( scale * 10000 * designFontSize ) / 10000;
+    }
+    //设置root元素的fontsize
+    var setFontSize=function(){
+        root.style.fontSize=getFontSize()+'px';
+    }
+    
+    //横竖屏切换或resize改变fontSize，根据需要选择使用
+    win.addEventListener("orientationchange", setFontSize, false);
+    win.addEventListener("resize", setFontSize, false);
+    setFontSize();
+}

@@ -21,7 +21,7 @@
 <script>
 import './landpage.scss'
 import http from '@/http/'
-import {checkMiniProgram, rem2px, viewWidth, backTop, throttleFn} from '@/utility/landpage'
+import {checkMiniProgram, rem2px, viewWidth, backTop, throttleFn, calcuFontSize} from '@/utility/landpage'
 
 //动态组件引入
 import Carousel from '@/components/Carousel'
@@ -53,6 +53,9 @@ export default {
     }
   },
   created(){
+    //落地页动态计算fontsize响应rem布局
+    calcuFontSize()
+    
     //获取落地页信息
     this.urlKey=this.$route.query.urlKey
     http.getPage({urlKey:this.urlKey})
