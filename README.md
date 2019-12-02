@@ -2,7 +2,7 @@
 > 落地页管理系统是提供给运营与设计人员使用的营销活动管理平台，通过拖拽UI组件生成可维护的落地页面在小程序及H5端实时展现。
 
 - [在线体验管理系统](https://yuniorzen.github.io/landpage/dist/)
-- 我的一篇开发实践分享 [可视化页面编辑管理系统开发实践分享](https://github.com/YuniorZen/landpage)
+- 我的一篇开发实践分享 [可视化页面编辑管理系统开发实践分享](https://developers.weixin.qq.com/community/develop/article/doc/0006087d3901e816a289f813053413)
 
 ### 技术栈
 - 后端技术栈 node+Koa+mongodb，提供落地页的更删改查API服务、素材的上传更新及有效期定时检测等。 
