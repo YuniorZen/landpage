@@ -68,6 +68,7 @@
       class="list-table"
       @selection-change="handleSelectionChange"
       :data="tableData"
+      v-loading="loading"
       border>
 
       <el-table-column
@@ -175,7 +176,8 @@ export default {
       pageCount: 1,
       totalSize:0,
       page:1,
-      multipleSelection: []
+      multipleSelection: [],
+      loading:false,
     }
   },
   created(){
@@ -193,7 +195,8 @@ export default {
           title=this.title,
           urlKey=this.urlKey,
           name=this.name;
-
+          
+      this.loading=true
       http.getAllPage({status, name, pageSize, page, urlKey, title})
       .then(res=>{     
         this.tableData=res.data||[]
@@ -203,7 +206,8 @@ export default {
         }else {
           this.disabled = false
         }
-        this.pageCount = Math.ceil(this.totalSize/this.pageSize)     
+        this.pageCount = Math.ceil(this.totalSize/this.pageSize)         
+        this.loading=false         
       })
     },
     //重置操作
@@ -364,7 +368,6 @@ export default {
       oInput.value = url;
       document.body.appendChild(oInput);
       oInput.select(); // 选择对象;
-      console.log(oInput.value)
       document.execCommand("Copy"); // 执行浏览器复制命令
       this.$message({
         message: '链接地址已复制成功',

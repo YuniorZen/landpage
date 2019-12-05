@@ -1,6 +1,4 @@
 <template>
-<!-- http://1255402581.vod2.myqcloud.com/7bd8fd48vodtransgzp1255402581/510a4c4b7447398154704162707/v.f20.mp4 -->
-
   <div class="component-video component-view" :style="style">
     <!-- 封面图片 -->
     <div class="video-poster" :style='posterStyle' v-if="!isPlay" @click="play">
@@ -100,10 +98,6 @@ export default {
     //开始播放
     play(e){
       if(this.videoLink){
-        if(!/(\.mp4)$/.test(this.videoLink)) {
-          return this.$message.error('视频链接必须以.mp4格式结尾')
-        }  
-
         let video=document.querySelector('#video'+this.id);
         if(video){
           video.play()     
